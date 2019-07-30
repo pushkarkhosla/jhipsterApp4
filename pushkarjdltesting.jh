@@ -1,0 +1,21 @@
+
+
+entity PushkarJhipster {
+	name String,
+    addressLine1 String,
+    addressLine2 String,
+    addressLine3 String,
+    pinCode Integer,
+    email String,
+    mobileNumber Integer,
+}
+
+// Set pagination options
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

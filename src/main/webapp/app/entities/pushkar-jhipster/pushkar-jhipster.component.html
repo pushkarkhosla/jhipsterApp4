@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span>Pushkar Jhipsters</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pushkar-jhipster" [routerLink]="['/pushkar-jhipster/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Pushkar Jhipster
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="pushkarJhipsters?.length === 0">
+        <span>No pushkarJhipsters found</span>
+    </div>
+    <div class="table-responsive" *ngIf="pushkarJhipsters?.length > 0">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Name</span></th>
+            <th><span>Address Line 1</span></th>
+            <th><span>Address Line 2</span></th>
+            <th><span>Address Line 3</span></th>
+            <th><span>Pin Code</span></th>
+            <th><span>Email</span></th>
+            <th><span>Mobile Number</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let pushkarJhipster of pushkarJhipsters ;trackBy: trackId">
+                <td><a [routerLink]="['/pushkar-jhipster', pushkarJhipster.id, 'view' ]">{{pushkarJhipster.id}}</a></td>
+                <td>{{pushkarJhipster.name}}</td>
+                <td>{{pushkarJhipster.addressLine1}}</td>
+                <td>{{pushkarJhipster.addressLine2}}</td>
+                <td>{{pushkarJhipster.addressLine3}}</td>
+                <td>{{pushkarJhipster.pinCode}}</td>
+                <td>{{pushkarJhipster.email}}</td>
+                <td>{{pushkarJhipster.mobileNumber}}</td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/pushkar-jhipster', pushkarJhipster.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/pushkar-jhipster', pushkarJhipster.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'pushkar-jhipster', { outlets: { popup: pushkarJhipster.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
